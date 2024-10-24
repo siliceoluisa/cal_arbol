@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
+
+:root {
+    /* Paleta de colores basada en tonos rosas */
+    --background-color: #fce7f3; /* Fondo claro */
+    --text-color: #5c3a52; /* Texto en modo claro */
+    --card-color: #fbcfe8; /* Fondo de tarjetas */
+    --textarea-color: #f9a8d4; /* Fondo de textareas */
+    --primary-color: #f472b6; /* Color primario para botones */
+    --button-color-light: #f9a8d4; /* Color claro de botones */
+    --button-color-dark: #ec4899; /* Color oscuro de botones */
+    --table-bg: #fbcfe8; /* Fondo de la tabla */
+    --table-text: #5c3a52; /* Texto de la tabla */
+    --table-border: #f9a8d4; /* Color de borde de la tabla */
+    --neon-glow: rgba(244, 114, 182, 0.5); /* Resplandor para efectos de neón sutil */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Distribución vertical */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0 20px;
+    font-family: 'Poppins', sans-serif; /* Fuente */
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.cal, .trees {
+    width: 100%;
+    max-width: 400px; /* Ancho máximo de la calculadora */
+    margin: 20px auto; /* Centra la calculadora */
+    border: 2px solid var(--primary-color); /* Borde alrededor de la calculadora respetando tu color principal */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 20px; /* Espaciado interno */
+    background-color: var(--card-color); /* Color de fondo de la calculadora */
+}
+
+table {
+    margin-top: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    width: 100%;
+    
+}
+
+.calbutton, .action_button, .c_button, .equals_button, .tree_button {
+    border-radius: 300px;
+    color: white;
+    font-weight: 500;
+    padding: 8px; /* Mantener el padding para los botones */
+    font-size: 14px;
+    margin: 5px; /* Mantener el margen entre botones */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    width: calc(100% - 10px); /* Asegura que el botón no se desborde, ajustando el ancho */
+    box-sizing: border-box; /* Asegura que el padding y margen se incluyan en el tamaño total */
+}
+
+.action_button {
+    background-color: var(--primary-color);
+}
+
+.c_button {
+    background-color: var(--button-color-light);
+}
+
+.equals_button {
+    background-color: var(--button-color-dark);
+}
+
+.tree_button {
+    background-color: #fda4af;
+}
+
+button {
+    height: 60px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+}
+
+button:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 15px var(--neon-glow);
+    border-radius: 12px;
+}
+
+th, td {
+    border: 1px solid var(--table-border);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 8px;
+}
+
+.display {
+    height: 100px; /* Pantalla más chica */
+    padding: 8px;
+    font-family: 'Roboto Mono', monospace; /* Fuente monospace */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    font-size: 18px; /* Tamaño de texto más pequeño */
+    text-align: right;
+    background-color: var(--table-bg);
+    border: 1px solid var(--table-border);
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+textarea {
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    border: none;
+    resize: none;
+    color: var(--primary-color);
+    font-size: 16px;
+    text-align: right;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.tokens {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--table-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    font-size: 14px;/* Permite que los botones se centren dentro de cada celda */
+    flex: 1; /* Asegura que cada botón ocupe el mismo espacio */
+    display: flex; /* Permite que los botones se centren dentro de cada celda */
+    justify-content: center;
+    padding: 0; 
+}
+
+td {
+    background-color: var(--table-bg);
+    color: var(--table-text);
+}
+
+/* Estilo de los nodos en SVG */
+svg circle {
+    fill: var(--background-color) !important;
+    stroke: var(--primary-color) !important;
+    stroke-width: 2px !important;
+}
+
+svg line {
+    stroke: var(--primary-color) !important;
+    stroke-width: 2px !important;
+}
+
+svg .node {
+    stroke: var(--primary-color) !important;
+    stroke-width: 2px !important;
+    fill: var(--background-color) !important;
+}
+
+svg text {
+    fill: var(--text-color) !important;
+}
+
+tr {
+  display: flex; /* Cambia la forma en que se alinean los elementos dentro de la fila */
+  justify-content: space-between; /* Distribuye el espacio entre los botones */
+  margin-bottom: 10px; /* Espaciado entre filas */
+}
+
+/* Estilos del modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Queda fijo en la ventana */
+  z-index: 1; /* Se coloca sobre otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: auto; /* Permitir desplazamiento si es necesario */
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+}
+
+.modal-content {
+  background-color: #fce7f3; /* Fondo rosado para el contenido */
+  position: absolute; /* Cambiado a absolute para centrar */
+  top: 50%; /* 50% desde la parte superior */
+  left: 50%; /* 50% desde la izquierda */
+  transform: translate(-50%, -50%); /* Mover hacia arriba y a la izquierda para centrar */
+  padding: 20px; /* Espaciado interno */
+  border: 1px solid #ec4899; /* Borde rosado */
+  width: 80%; /* Ancho del modal */
+  max-width: 600px; /* Máximo ancho */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra suave */
+}
+
+.close-button {
+  color: #ec4899; /* Color rosado para el botón de cierre */
+  float: right; /* A la derecha */
+  font-size: 28px; /* Tamaño del texto */
+  font-weight: bold; /* Negrita */
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor */
+}
+
+.close-button:hover,
+.close-button:focus {
+  color: #d5006d; /* Cambia a un tono más oscuro al pasar el mouse */
+  text-decoration: none; /* Sin subrayado */
+}
